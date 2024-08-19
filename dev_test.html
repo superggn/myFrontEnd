@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      .container {
+        column-width: 200px;
+        column-count: 4;
+      }
+    </style>
+    <!-- 这段放在 head 里 -->
+    <!-- Facebook Pixel Code -->
+    <script>
+      !(function (f, b, e, v, n, t, s) {
+        if (f.fbq) return;
+        n = f.fbq = function () {
+          n.callMethod
+            ? n.callMethod.apply(n, arguments)
+            : n.queue.push(arguments);
+        };
+        if (!f._fbq) f._fbq = n;
+        n.push = n;
+        n.loaded = !0;
+        n.version = "2.0";
+        n.queue = [];
+        t = b.createElement(e);
+        t.async = !0;
+        t.src = v;
+        s = b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t, s);
+      })(
+        window,
+        document,
+        "script",
+        "https://connect.facebook.net/en_US/fbevents.js"
+      );
+      // 1522028641770945: is dataset id
+      fbq("init", "1522028641770945");
+    </script>
+    <noscript>
+      <!-- 1522028641770945: is dataset id -->
+      <img
+        height="1"
+        width="1"
+        style="display: none"
+        src="https://www.facebook.com/tr?id=1522028641770945&ev=PageView&noscript=1"
+      />
+    </noscript>
+    <!-- End Facebook Pixel Code -->
+  </head>
+
+  <body>
+    <div class="container">
+      <h1>Multi-column layout</h1>
+      <p>Paragraph 1.</p>
+      <p>Paragraph 2.</p>
+    </div>
+    <!-- <script>
+      fbq("trackCustom", "Deposit", {
+        currency: "USD",
+        value: 12.345,
+      });
+    </script> -->
+    <!-- 这段绑到按钮上 -->
+    <script type="module">
+      async function sha256(message) {
+        // encode as UTF-8
+        const msgBuffer = new TextEncoder().encode(message);
+
+        // hash the message
+        const hashBuffer = await crypto.subtle.digest("SHA-256", msgBuffer);
+
+        // convert ArrayBuffer to Array
+        const hashArray = Array.from(new Uint8Array(hashBuffer));
+
+        // convert bytes to hex string
+        const hashHex = hashArray
+          .map((b) => b.toString(16).padStart(2, "0"))
+          .join("");
+        return hashHex;
+      }
+
+      (async () => {
+        // 将用户名统一小写之后 sha 一下当成 external_id 使用
+        const hashRes = await sha256("ognyb844".toLowerCase());
+        fbq("trackCustom", "ClickDepositButton", {
+          external_id: hashRes,
+        });
+      })();
+    </script>
+    <p>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla luctus
+      aliquam dolor, eu lacinia lorem placerat vulputate. Duis felis orci,
+      pulvinar id metus ut, rutrum luctus orci. Cras porttitor imperdiet nunc,
+      at ultricies tellus laoreet sit amet. Sed auctor cursus massa at porta.
+      Integer ligula ipsum, tristique sit amet orci vel, viverra egestas ligula.
+      Curabitur vehicula tellus neque, ac ornare ex malesuada et. In vitae
+      convallis lacus. Aliquam erat volutpat. Suspendisse ac imperdiet turpis.
+      Aenean finibus sollicitudin eros pharetra congue. Duis ornare egestas
+      augue ut luctus. Proin blandit quam nec lacus varius commodo et a urna. Ut
+      id ornare felis, eget fermentum sapien.
+    </p>
+  </body>
+</html>
